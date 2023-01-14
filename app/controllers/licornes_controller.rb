@@ -1,0 +1,2 @@
+class LicornesController < ApplicationController
+end
