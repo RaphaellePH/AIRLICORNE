@@ -1,6 +1,8 @@
 class LicornesController < ApplicationController
+  #skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
-    @licornes = Licornes.all
+    @licornes = Licorne.all
   end
 
   def show
@@ -13,8 +15,9 @@ class LicornesController < ApplicationController
 
   def create
     @licorne = Licorne.new(licorne_params)
+    @licorne.user = User.last
     if @licorne.save
-      redirect_to licorne_path(@licorne)
+      redirect_to licornes_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +30,7 @@ class LicornesController < ApplicationController
 
   private
 
-  def licorme_params
+  def licorne_params
     params.require(:licorne).permit(:price, :name, :age, :superpower)
   end
 end
