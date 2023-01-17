@@ -20,6 +20,11 @@ class LicornesController < ApplicationController
     end
   end
 
+  def destroy
+    @licorne.destroy
+    redirect_to licornes_path, status: :see_other
+  end
+
   private
 
   def licorme_params
