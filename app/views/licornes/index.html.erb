@@ -1,0 +1,10 @@
+<h1>All your unicorns</h1>
+<h3>My unicorns</h3>
+<%= link_to "Add a unicorn", new_licorne_path %>
+<% if @licornes.any? %>
+  <% @licornes.each do |licorne| %>
+      <%= link_to licorne_path(licorne) do %>
+          <%= licorne.name %>
+      <% end %>
+  <% end %>
+<% end %>

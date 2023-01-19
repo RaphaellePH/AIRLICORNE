@@ -1,0 +1,7 @@
+<h1>Bookings for <%= @licorne.name %></h1>
+<% @licornes.bookings.each do |booking| %>
+  <%= booking.date %>
+  <%= booking.status %>
+<% end %>
+
+<%= link_to "See all unicorns", unicorns_path %>
