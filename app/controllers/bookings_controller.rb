@@ -10,7 +10,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to pages_path()
+      redirect_to dashboard_path()
+      # message pop up "reservation validée"
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,7 +19,8 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to pages_path()
+    redirect_to dashboard_path()
+    # message pop up "reservation annulée"
   end
 
   private
