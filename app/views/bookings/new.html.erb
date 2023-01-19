@@ -1,4 +1,4 @@
-<%= simple_form_for @booking do |f| %>
+<%= simple_form_for [@licorne, @booking] do |f| %>
   <%= f.input :date %>
   <%= f.button :submit %>
 <% end %>
