@@ -1,7 +1,18 @@
-<h1>Bookings for <%= @licorne.name %></h1>
-<% @licornes.bookings.each do |booking| %>
+<h1>Profile for <%= @licorne.name %></h1>
+<h2>Age :<%= @licorne.age %></h2>
+<h2>Price :<%= @licorne.price %></h2>
+<h2>Superpower :<%= @licorne.superpower %></h2>
+
+<h1>Unicorn owner info</h1>
+<h2>Name :<%= @licorne.user.first_name %> <%= @licorne.user.last_name %></h2>
+<h2>Address :<%= @licorne.user.address %></h2>
+<h2>Email :<%= @licorne.user.email %></h2>
+
+<h1>Booking history</h1>
+<% @licorne.bookings.each do |booking| %>
   <%= booking.date %>
   <%= booking.status %>
 <% end %>
 
-<%= link_to "See all unicorns", unicorns_path %>
+<%= link_to "Book now", licornes_path %>
+<%= link_to "See all unicorns", licornes_path %>
