@@ -11,7 +11,6 @@ class LicornesController < ApplicationController
 
   def new
     @licorne = Licorne.new
-    raise
   end
 
   def create
