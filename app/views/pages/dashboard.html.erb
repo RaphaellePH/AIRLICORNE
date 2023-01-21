@@ -36,4 +36,13 @@
       <li><%= booking.date %> - <%= booking.licorne.name %> (<%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %>)</li>
     <% end %>
   </ul>
+
+  <h4>My licornes: </h4>
+  <ul>
+    <% current_user.licornes.each do |licorne| %>
+      <li><%= licorne.name %> - <%= licorne.price %> (<%= licorne.superpower %> <%= licorne.age %>)</li>
+    <% end %>
+  </ul>
 <% end %>
+
+<%= link_to "Add my Licorne to Airlicorne", new_licorne_path() %>

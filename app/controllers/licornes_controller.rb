@@ -17,7 +17,7 @@ class LicornesController < ApplicationController
     @licorne = Licorne.new(licorne_params)
     @licorne.user = User.last
     if @licorne.save
-      redirect_to licornes_path
+      redirect_to dashboard_path()
     else
       render :new, status: :unprocessable_entity
     end
