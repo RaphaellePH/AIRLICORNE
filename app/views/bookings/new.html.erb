@@ -1,4 +1,5 @@
-<%= simple_form_for [@licorne, @booking] do |f| %>
-  <%= f.input :date %>
-  <%= f.button :submit %>
+<%= simple_form_for [@licorne, @booking], html:{data:{controller: 'flatpickr'}} do |f| %>
+  <%= f.input :date, as: :string, input_html: {class:"d-none", data: { flatpickr_target: 'date' } }%>
+  <%# <%= f.input :end_date, as: :string, input_html:{data: {flatpickr_target: 'endDateInput'}}%>
+  <%= f.submit 'Book now!', class: 'btn-primary' %>
 <% end %>
