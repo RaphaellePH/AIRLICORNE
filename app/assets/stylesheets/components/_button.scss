@@ -1,7 +1,15 @@
 .btn {
   border-radius: 10px;
+  background-color : $pastel-blue;
+  color : $pop-blue;
 }
 
-  :hover {
-    transition-duration: 0.2s;
-  }
+.btn:hover {
+  background-color : $pop-blue;
+  font-weight: bolder;
+  transition-duration: 0.2s;
+}
+
+.btn a {
+  text-decoration: none;
+}
