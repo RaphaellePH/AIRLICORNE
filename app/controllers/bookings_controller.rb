@@ -8,8 +8,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.status = "pending"
     @booking.licorne = @licorne
-    @booking.user = User.last #à modifier en current user quand co faite
+    @booking.user = current_user #à modifier en current user quand co faite
     @booking.save
     redirect_to licornes_path()
       # message pop up "reservation validée"

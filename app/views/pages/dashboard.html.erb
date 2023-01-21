@@ -1,0 +1,39 @@
+<h1>My Dashboard</h1>
+
+
+<% if current_user.licornes.empty? %>
+  <h4>Pending bookings: </h4>
+  <ul>
+    <% @pending_bookings.each do |booking| %>
+      <li><%= booking.date %> - <%= booking.licorne.name %> (<%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %>)</li>
+    <% end %>
+  </ul>
+
+  <h4>Confirmed bookings: </h4>
+  <ul>
+    <% @confirmed_bookings.each do |booking| %>
+      <li><%= booking.date %> - <%= booking.licorne.name %> (<%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %>)</li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>Requested Bookings: </h4>
+  <ul>
+    <% @requested_bookings.each do |booking| %>
+      <li><%= booking.date %> - <%= booking.user.first_name %> <%= booking.user.last_name %> with <%= booking.licorne.name %></li>
+    <% end %>
+  </ul>
+
+  <h4>Pending bookings: </h4>
+  <ul>
+    <% @pending_bookings.each do |booking| %>
+      <li><%= booking.date %> - <%= booking.licorne.name %> (<%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %>)</li>
+    <% end %>
+  </ul>
+
+  <h4>Confirmed bookings: </h4>
+  <ul>
+    <% @confirmed_bookings.each do |booking| %>
+      <li><%= booking.date %> - <%= booking.licorne.name %> (<%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %>)</li>
+    <% end %>
+  </ul>
+<% end %>

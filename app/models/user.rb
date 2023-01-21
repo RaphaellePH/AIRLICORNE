@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :licornes, dependent: :destroy
   has_many :bookings, dependent: :destroy
+
+  has_many :requested_bookings, through: :licornes, source: :bookings
 end
