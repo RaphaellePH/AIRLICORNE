@@ -10,3 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body .notice {
+  margin-bottom : 0;
+}
