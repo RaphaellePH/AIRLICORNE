@@ -2,6 +2,10 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: :destroy
   before_action :set_licorne, only: [:new, :create]
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     @booking = Booking.new
   end
@@ -10,9 +14,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.licorne = @licorne
     @booking.user = User.last #à modifier en current user quand co faite
+    @booking.status = "Pending"
     @booking.save
-    redirect_to licornes_path()
-      # message pop up "reservation validée"
+    redirect_to booking_path(@booking)
     # else
     #   render :new, status: :unprocessable_entity
     # end
@@ -21,7 +25,6 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to dashboard_path()
-    # message pop up "reservation annulée"
   end
 
   private
