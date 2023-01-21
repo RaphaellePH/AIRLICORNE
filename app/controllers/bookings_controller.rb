@@ -12,9 +12,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.status = "pending"
     @booking.licorne = @licorne
-    @booking.user = User.last #à modifier en current user quand co faite
-    @booking.status = "Pending"
+    @booking.user = current_user
     @booking.save
     redirect_to booking_path(@booking)
     # else
