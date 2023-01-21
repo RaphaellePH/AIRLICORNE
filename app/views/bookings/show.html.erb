@@ -1,0 +1,13 @@
+<h1>Your reservation</h1>
+
+<% @licorne = Licorne.find(@booking.licorne_id) %>
+
+<h2>Licorne :</h2>
+<p><%= @licorne.name %></p>
+<h2>Date :</h2>
+<p><%= @booking.date %></p>
+<h2>Statut :</h2>
+<p><%= @booking.status %></p>
+
+
+
