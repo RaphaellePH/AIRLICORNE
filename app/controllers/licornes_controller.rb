@@ -31,6 +31,6 @@ class LicornesController < ApplicationController
   private
 
   def licorne_params
-    params.require(:licorne).permit(:price, :name, :age, :superpower)
+    params.require(:licorne).permit(:price, :name, :age, :superpower, :photo)
   end
 end
