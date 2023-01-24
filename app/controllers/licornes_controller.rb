@@ -4,6 +4,13 @@ class LicornesController < ApplicationController
 
   def index
     @licornes = Licorne.all
+
+    @markers = @licornes.map do |licorne|
+      {
+        lat: licorne.user.latitude,
+        lng: licorne.user.longitude
+      }
+    end
   end
 
   def show

@@ -1,7 +1,36 @@
 .card-licorne {
-  background-color: white;
-  box-shadow: 10px 5px 5px lightgray;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
-  padding: 10px;
-  flex-basis: 30%;
+  width: 400px;
+  height: 475px;
+  border-radius: 15px;
+  .licorne-img img {
+    object-fit: cover;
+    height: 250px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .licorne-infos {
+    margin: 20px auto 20px;
+  }
+
+  .btn {
+    margin-right: 20px;
+  }
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-list-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-flex-item {
+  background: gray;
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
 }

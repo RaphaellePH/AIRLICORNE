@@ -1,12 +1,39 @@
-<h1>Profile for <%= @licorne.name %></h1>
-<h2>Age :<%= @licorne.age %></h2>
-<h2>Price :<%= @licorne.price %></h2>
-<h2>Superpower :<%= @licorne.superpower %></h2>
-
-<h1>Unicorn owner info</h1>
-<h2>Name :<%= @licorne.user.first_name %> <%= @licorne.user.last_name %></h2>
-<h2>Address :<%= @licorne.user.address %></h2>
-<h2>Email :<%= @licorne.user.email %></h2>
+<div class="container-licorne">
+  <div class="card-licorne">
+    <h1 class="card-title"><%= @licorne.name %></h1>
+    <div class="d-flex justify-content-between mt-3">
+      <div class="col md-4"><%= cl_image_tag @licorne.photo.key, height: 300, width: 400, crop: :fill %></div>
+      <div class="col md-8">
+        <div class="d-flex justify-content-between mt-1">
+          <h4 class="col md-6">Age :</h4>
+          <p class="col md-6"><%= @licorne.age %></p>
+        </div>
+        <div class="d-flex justify-content-between mt-1">
+          <h4 class="col md-6">Superpower :</h4>
+          <p class="col md-6"><%= @licorne.superpower %></p>
+        </div>
+        <div class="d-flex justify-content-between mt-1">
+          <h4 class="col md-6">Owner Name :</h4>
+          <p class="col md-6"><%= @licorne.user.first_name %> <%= @licorne.user.last_name %></p>
+        </div>
+        <div class="d-flex justify-content-between mt-1">
+          <h4 class="col md-6">Address :</h4>
+          <p class="col md-6"><%= @licorne.user.address %></p>
+        </div>
+        <div class="d-flex justify-content-between mt-1">
+          <p class="test"><%= @licorne.price %>€</p>
+        </div>
+      </div>
+    </div>
+  </div>
+      <div class="d-flex justify-content-center mt-1">
+        <div class="btn a" style="padding: 20px"><%= link_to "Book now", new_licorne_booking_path(@licorne) %></div>
+      </div>
+      <div class="d-flex justify-content-center mt-1">
+        <div class="btn a" style="margin: 10px"><%= link_to "See all unicorns", licornes_path %></div>
+        <div class="btn a" style="margin: 10px"><%= link_to "Edit unicorn info", edit_licorne_path %></div>
+      </div>
+</div>
 
 <h1>Booking history</h1>
 <% @licorne.bookings.each do |booking| %>
