@@ -15,7 +15,7 @@ class LicornesController < ApplicationController
 
   def create
     @licorne = Licorne.new(licorne_params)
-    @licorne.user = User.last
+    @licorne.user = current_user
     if @licorne.save
       redirect_to dashboard_path()
     else
