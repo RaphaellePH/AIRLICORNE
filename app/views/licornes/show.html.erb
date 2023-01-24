@@ -14,5 +14,5 @@
   <%= booking.status %>
 <% end %>
 
-<%= link_to "Book now", new_licorne_booking_path(@licorne) %>
+<%= link_to "Book now", new_licorne_booking_path(@licorne) unless @licorne.user == current_user %>
 <%= link_to "See all unicorns", licornes_path %>

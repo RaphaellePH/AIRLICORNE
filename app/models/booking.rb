@@ -4,4 +4,5 @@ class Booking < ApplicationRecord
 
   scope :pending, -> { where(status: "pending") }
   scope :confirmed, -> { where(status: "confirmed") }
+  scope :canceled, -> { where(status: "canceled") }
 end

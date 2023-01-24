@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'pages#dashboard'
-  
-  resources :bookings, only: :show
+
+  resources :bookings, only: [:show] do
+    member do
+      patch :cancel
+      patch :confirm
+    end
+  end
 end
