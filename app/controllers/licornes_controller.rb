@@ -1,5 +1,6 @@
 class LicornesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_licorne, only: %i[show destroy edit update]
 
   def index
     @licornes = Licorne.all
@@ -13,7 +14,6 @@ class LicornesController < ApplicationController
   end
 
   def show
-    @licorne = Licorne.find(params[:id])
   end
 
   def new
@@ -35,7 +35,19 @@ class LicornesController < ApplicationController
     redirect_to licornes_path, status: :see_other
   end
 
+  def edit
+  end
+
+  def update
+    @licorne.update(licorne_params)
+    redirect_to licorne_path(@licorne)
+  end
+
   private
+
+  def set_licorne
+    @licorne = Licorne.find(params[:id])
+  end
 
   def licorne_params
     params.require(:licorne).permit(:price, :name, :age, :superpower, :photo)

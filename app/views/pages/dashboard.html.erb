@@ -10,8 +10,9 @@
               <h5 class="card-title"><%= booking.licorne.name %></h5>
               <p class="card-text"><%= booking.date %></p>
               <p class="card-text"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
-              <a href="#" class="btn btn-primary">Confirm Booking</a>
-              <a href="#" class="btn btn-primary">Deny Booking</a>
+              <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
+              <%= link_to "Confirm Booking", confirm_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-success" if booking.status == "pending" %>
+              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-alert" %>
             </div>
           </div>
         <% end %>
@@ -30,7 +31,8 @@
               <h5 class="card-title"><%= booking.licorne.name %></h5>
               <p class="card-text"><%= booking.date %></p>
               <p class="card-text"><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
-              <a href="#" class="btn btn-primary">Cancel Booking</a>
+              <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
+              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-alert" %>
             </div>
           </div>
         <% end %>
@@ -49,7 +51,8 @@
               <h5 class="card-title"><%= booking.licorne.name %></h5>
               <p class="card-text"><%= booking.date %></p>
               <p class="card-text"><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
-              <a href="#" class="btn btn-primary">Cancel Booking</a>
+              <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
+              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-alert" %>
             </div>
           </div>
         <% end %>
@@ -71,9 +74,7 @@
             <li>AGE: <%= licorne.age %> years old</li>
             <li>SUPERPOWER: <%= licorne.superpower %></li>
           </div>
-          <div class="btn">
-            <%= link_to "Update Infos", licorne_path(licorne) %>
-          </div>
+          <%= link_to "Update Licorne Infos", licorne_path(licorne), class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
@@ -82,3 +83,23 @@
 <div class="btn">
   <%= link_to "Add a Licorne to Airlicorne", new_licorne_path() %>
 </div>
+
+  <% if @canceled_bookings.any? %>
+    <div class="card">
+      <h5 class="card-header">Canceled Bookings</h5>
+      <div class="row">
+        <div class="col-sm-6">
+        <% @canceled_bookings.each do |booking| %>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.licorne.name %></h5>
+              <p class="card-text"><%= booking.date %></p>
+              <p class="card-text"><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
+              <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>

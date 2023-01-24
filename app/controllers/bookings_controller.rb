@@ -1,13 +1,12 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: :destroy
-  before_action :set_licorne, only: [:new, :create]
+  before_action :set_booking, only: %i[show edit confirm cancel]
+  before_action :set_licorne, only: %i[new create]
 
   def show
-    @booking = Booking.find(params[:id])
   end
 
   def new
-    @booking = Booking.new
+    @booking = Booking.new 
   end
 
   def create
@@ -17,20 +16,27 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.save
     redirect_to booking_path(@booking)
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
   end
 
-  def destroy
-    @booking.destroy
+  def cancel
+    @booking.status = "canceled"
+    @booking.save
     redirect_to dashboard_path()
+  end
+
+  def confirm
+    @booking.status = "confirmed"
+    @booking.save
+    redirect_to dashboard_path()
+  end
+
+  def edit
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :user_id)
+    params.require(:booking).permit(:date, :user_id, :status)
   end
 
   def set_booking
