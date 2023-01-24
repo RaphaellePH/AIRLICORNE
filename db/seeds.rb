@@ -8,13 +8,17 @@ Licorne.destroy_all
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Faker::Config.locale = 'fr'
+
 puts "Creating Users..."
 10.times do
   user = User.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    first_name: Faker::Name.first_name.strip,
+    last_name: Faker::Name.last_name.strip,
     password: "password",
-    address: Faker::Address.full_address,
+    address: Faker::Address.city,
+    # latitude: Faker::Address.latitude,
+    # longitude: Faker::Address.longitude,
   )
   user.email = "#{user.first_name}.#{user.last_name}@gmail.com"
   user.save!
@@ -30,6 +34,8 @@ puts "Creating licornes..."
     age: rand(2..999),
   )
   licorne.user = User.first(5).sample
+  licorne.latitude = licorne.user.latitude
+  licorne.longitude = licorne.user.longitude
   licorne.save!
 end
 puts "Licornes created !!"
