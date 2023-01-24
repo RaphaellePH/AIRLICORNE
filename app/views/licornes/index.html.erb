@@ -1,7 +1,9 @@
-<h1>Uncover the secrets of our Licornes</h1>
+<div class="background">
+  <div class="title text-center">
+    <h1>UNCOVER THE SECRETS OF OUR UNICORNS</h1>
+  </div>
 
-
-<div class="container">
+  <div class="container">
     <% @licornes.each do |licorne| %>
       <div class="card-licorne">
         <div class="licorne-img">
@@ -14,34 +16,15 @@
            <li><strong>SUPERPOWER:</strong> <%= licorne.superpower %></li>
            <li><strong>ADDRESS:</strong> <%= licorne.user.address %></li>
         </div>
-
-        <div class="btn">
-          <%= link_to "#{licorne.price}€", licorne_path(licorne) %>
+        <div class="d-flex justify-content-end">
+          <div class="btn btn-sm">
+            <%= link_to "#{licorne.price}€", licorne_path(licorne) %>
+          </div>
         </div>
       </div>
     <% end %>
-</div>
-
-  <%= link_to "Register my licorne", new_licorne_path %>
-
-
-
-<%# <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
+
+  <%# <%= link_to "Register my licorne", new_licorne_path %>
+
 </div>
-
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div> %>
