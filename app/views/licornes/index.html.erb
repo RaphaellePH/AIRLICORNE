@@ -7,7 +7,7 @@
     <% @licornes.each do |licorne| %>
       <div class="card-licorne">
         <div class="licorne-img">
-          <%= image_tag "licorne01.jpg" %>
+          <%= cl_image_tag licorne.photo.key %>
         </div>
 
         <div class="licorne-infos">
@@ -27,14 +27,7 @@
 
   <%# <%= link_to "Register my licorne", new_licorne_path %>
 
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div> %>
-
-  <div style="width: 100%; height: 600px;"
+  <div style="width: 800px; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

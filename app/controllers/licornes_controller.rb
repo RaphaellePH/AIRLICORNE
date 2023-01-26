@@ -8,9 +8,10 @@ class LicornesController < ApplicationController
     @markers = @licornes.map do |licorne|
       {
         lat: licorne.user.latitude,
-        lng: licorne.user.longitude
+        lng: licorne.user.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {licorne: licorne})
       }
-    end
+    end  
   end
 
   def show
