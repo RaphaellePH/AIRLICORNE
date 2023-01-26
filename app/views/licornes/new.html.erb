@@ -1,9 +1,12 @@
-<h3>Create a new unicorn</h3>
-<%= simple_form_for @licorne do |f| %>
-  <%= f.input :name, placeholder: 'name' %>
-  <%= f.input :age %>
-  <%= f.input :superpower %>
-  <%= f.input :price %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit class: 'btn btn-flat' %>
-<% end %>
+<div class="container-licorne">
+  <h3>Create a new unicorn</h3>
+  <div class="form-font"><%= simple_form_for @licorne do |f| %>
+      <%= f.input :name, placeholder: 'name' %>
+      <%= f.input :age %>
+      <%= f.input :superpower %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class: 'btn btn-flat' %></div>
+    <% end %>
+  </div>
+</div>
