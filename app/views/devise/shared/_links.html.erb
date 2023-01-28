@@ -1,6 +1,8 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
-<% end %>
+<div class="d-flex mt-3">
+  <%- if controller_name != 'sessions' %>
+    <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <% end %>
+</div>
 
 <div class="d-flex mt-3">
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
