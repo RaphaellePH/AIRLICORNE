@@ -25,10 +25,14 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-end mt-5">
-      <div class="btn a" style="padding: 20px"><%= link_to "Book now", new_licorne_booking_path(@licorne) %></div>
-    </div>
-    <div class="d-flex justify-content-start">
+
+    <% unless current_user == @licorne.user %>
+      <div class="d-flex justify-content-end mt-5">
+        <div class="btn a" style="padding: 20px"><%= link_to "Book now", new_licorne_booking_path(@licorne) %></div>
+      </div>
+    <% end %>
+
+    <div class="d-flex justify-content-start mt-5">
       <span class="link-licorne">
         <i class="fa-solid fa-horse"> </i>
         <%= link_to "See all licornes", licornes_path, class:"link" %>
