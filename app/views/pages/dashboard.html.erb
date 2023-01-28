@@ -1,11 +1,14 @@
-<h1>My Dashboard</h1>
+<div class="title text-center">
+  <h1>MY DASHBOARD</h1>
+</div>
+<div class="container">
   <% if @requested_bookings.any? %>
-    <div class="card">
+    <div class="card mt-3" style="width: 100%">
       <h5 class="card-header">Requested Bookings</h5>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-3">
         <% @requested_bookings.each do |booking| %>
-          <div class="card">
+          <div class="card m-3">
             <div class="card-body">
               <h5 class="card-title"><%= booking.licorne.name %></h5>
               <p class="card-text"><%= booking.date %></p>
@@ -21,12 +24,12 @@
     </div>
   <% end %>
   <% if @pending_bookings.any? %>
-    <div class="card">
+    <div class="card mt-3" style="width: 100%">
       <h5 class="card-header">Pending Bookings</h5>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-3">
         <% @pending_bookings.each do |booking| %>
-          <div class="card">
+          <div class="card m-3">
             <div class="card-body">
               <h5 class="card-title"><%= booking.licorne.name %></h5>
               <p class="card-text"><%= booking.date %></p>
@@ -41,12 +44,12 @@
     </div>
   <% end %>
   <% if @confirmed_bookings.any? %>
-    <div class="card">
+    <div class="card mt-3" style="width: 100%">
       <h5 class="card-header">Confirmed Bookings</h5>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-3">
         <% @confirmed_bookings.each do |booking| %>
-          <div class="card">
+          <div class="card m-3">
             <div class="card-body">
               <h5 class="card-title"><%= booking.licorne.name %></h5>
               <p class="card-text"><%= booking.date %></p>
@@ -62,33 +65,35 @@
   <% end %>
 
   <% if current_user.licornes.any? %>
-    <div class="card">
+    <div class="card mt-3" style="width: 100%">
       <h5 class="card-header">My Licornes</h5>
-      <% current_user.licornes.each do |licorne| %>
-        <div class="card-licorne">
-          <div class="licorne-img">
-            <%= cl_image_tag licorne.photo.key %>
+      <div class="d-flex flex-row">
+        <% current_user.licornes.each do |licorne| %>
+          <div class="card-licorne m-3" style="height: 400px">
+            <div class="licorne-img">
+              <%= image_tag "licorne01.jpg" %>
+            </div>
+            <div class="licorne-infos ps-3">
+              <li>NAME: <%= licorne.name %></li>
+              <li>AGE: <%= licorne.age %> years old</li>
+              <li>SUPERPOWER: <%= licorne.superpower %></li>
+              <%= link_to "Update Licorne Infos", licorne_path(licorne), class: "btn btn-primary mt-3" %>
+            </div>
           </div>
-          <div class="licorne-infos">
-            <li>NAME: <%= licorne.name %></li>
-            <li>AGE: <%= licorne.age %> years old</li>
-            <li>SUPERPOWER: <%= licorne.superpower %></li>
-          </div>
-          <%= link_to "Update Licorne Infos", licorne_path(licorne), class: "btn btn-primary" %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
-<div class="btn">
-  <%= link_to "Add a Licorne to Airlicorne", new_licorne_path() %>
-</div>
+  <div class="btn mt-3">
+    <%= link_to "Add a Licorne to Airlicorne", new_licorne_path() %>
+  </div>
 
   <% if @canceled_bookings.any? %>
-    <div class="card">
+    <div class="card mt-3" style="width: 100%">
       <h5 class="card-header">Canceled Bookings</h5>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-3">
         <% @canceled_bookings.each do |booking| %>
           <div class="card">
             <div class="card-body">
@@ -103,3 +108,4 @@
       </div>
     </div>
   <% end %>
+</div>
