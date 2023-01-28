@@ -14,6 +14,12 @@
 @import "pages/index";
 @import "licornes/show";
 
+@font-face {
+  font-family: 'AgendaKing';
+  src: url('AgendaKing.ttf');
+}
+
 body .notice {
   margin-bottom : 0;
 }
+
