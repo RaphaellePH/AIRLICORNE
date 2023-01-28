@@ -69,9 +69,9 @@
           <div class="card m-3">
             <div class="card-body">
               <h5 class="card-title-booking"><%= booking.licorne.name %></h5>
-              <p class="card-text"><%= booking.date %></p>
-              <p class="card-text"><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
-              <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
+              <p class="card-text">Date: <strong><%= booking.date %></strong></p>
+              <p class="card-text">Owner: <strong><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></strong></p>
+              <p class="card-text">Booking Status: <strong><%= booking.status.capitalize %></strong></p>
               <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn cancel-btn" %>
             </div>
           </div>
@@ -89,9 +89,9 @@
           <div class="card m-3">
             <div class="card-body">
               <h5 class="card-title-booking"><%= booking.licorne.name %></h5>
-              <p class="card-text"><%= booking.date %></p>
-              <p class="card-text"><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
-              <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
+              <p class="card-text">Date: <%= booking.date %></p>
+              <p class="card-text">Owner: <%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
+              <p class="card-text">Booking Status: <strong><%= booking.status.capitalize %></strong></p>
               <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn cancel-btn" %>
             </div>
           </div>
@@ -106,12 +106,12 @@
       <div class="row">
         <div class="col-sm-3">
         <% @canceled_bookings.each do |booking| %>
-          <div class="card">
+          <div class="card m-3">
             <div class="card-body">
-              <h5 class="card-title"><%= booking.licorne.name %></h5>
-              <p class="card-text"><%= booking.date %></p>
-              <p class="card-text"><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
-              <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
+              <h5 class="card-title-booking"><%= booking.licorne.name %></h5>
+              <p class="card-text">Date: <strong><%= booking.date %></strong></p>
+              <p class="card-text">Owner: <strong><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></strong></p>
+              <p class="card-text">Booking Status: <strong><%= booking.status.capitalize %></strong></p>
             </div>
           </div>
         <% end %>
