@@ -1,42 +1,31 @@
-<div class="background">
-  <div class="title text-center">
-    <h1>UNCOVER THE SECRETS OF OUR UNICORNS</h1>
-  </div>
-
-  <div class="container">
-    <% @licornes.each do |licorne| %>
-      <div class="card-licorne">
-        <div class="licorne-img">
-          <%= image_tag "licorne01.jpg" %>
-        </div>
-
-        <div class="licorne-infos">
-           <li><strong>NAME:</strong> <%= licorne.name %></li>
-           <li><strong>AGE:</strong> <%= licorne.age %> years old</li>
-           <li><strong>SUPERPOWER:</strong> <%= licorne.superpower %></li>
-           <li><strong>ADDRESS:</strong> <%= licorne.user.address %></li>
-        </div>
-        <div class="d-flex justify-content-end">
-          <div class="btn btn-sm">
-            <%= link_to "#{licorne.price}€", licorne_path(licorne) %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <%# <%= link_to "Register my licorne", new_licorne_path %>
-
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="title text-center">
+  <h1>UNCOVER THE SECRETS OF OUR UNICORNS</h1>
+</div>
+<div class="container">
+ <% @licornes.each do |licorne| %>
+   <div class="card-licorne">
+     <div class="licorne-img">
+       <%= cl_image_tag licorne.photo.key %>
+     </div>
+     <div class="licorne-infos">
+         <li><strong>NAME:</strong> <%= licorne.name %></li>
+         <li><strong>AGE:</strong> <%= licorne.age %> years old</li>
+         <li><strong>SUPERPOWER:</strong> <%= licorne.superpower %></li>
+         <li><strong>ADDRESS:</strong> <%= licorne.user.address %></li>
+     </div>
+     <div class="d-flex justify-content-end">
+       <div class="btn btn-sm">
+         <%= link_to "#{licorne.price}€", licorne_path(licorne) %>
+       </div>
+     </div>
     </div>
-  </div> %>
+  <% end %>
+</div>
 
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+<%= link_to "Register my licorne", new_licorne_path %>
+
+<div style="width: 800px; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

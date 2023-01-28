@@ -2,6 +2,20 @@
   width: -25px;
   border-radius: 15px;
   padding: 16px;
-  background-color: #DEECFC;
-  margin-left: 238px;
+  color: $pop-blue;
+}
+
+.fa-solid {
+  color: $pop-blue;
+  padding-right: 5px;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: $white;
+  font-family: "Cinzel";
 }

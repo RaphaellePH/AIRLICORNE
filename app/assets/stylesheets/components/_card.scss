@@ -20,7 +20,7 @@
 }
 
 .card-title {
-  text-align: center;
+  text-align: flex-start;
 }
 
 .card-list-items {
@@ -33,6 +33,17 @@
   width: 50px;
   height: 50px;
   margin: 0 5px;
+  font-family: "Cinzel";
+}
+
+.card-licorne-large {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  padding-top: 10px;
+  width: 1200px;
+  height: 400px;
+  border-radius: 15px;
+  align-content: center;
 }
 
 .card-header {
