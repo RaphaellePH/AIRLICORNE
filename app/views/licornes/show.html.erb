@@ -1,36 +1,41 @@
 <div class="container-licorne">
-  <div class="card-licorne">
-    <h1 class="card-title"><%= @licorne.name %></h1>
+  <div class="card-licorne-large">
+    <h1 class="card-title ps-3"><%= @licorne.name %></h1>
     <div class="d-flex justify-content-between mt-3">
-      <div class="col md-4"><%= cl_image_tag @licorne.photo.key, height: 300, width: 400, crop: :fill %></div>
-      <div class="col md-8">
-        <div class="d-flex justify-content-between mt-1">
-          <h4 class="col md-6">Age :</h4>
+      <div class="col-4 ps-3"><%= cl_image_tag @licorne.photo.key, height: 300, width: 400, crop: :fill %></div>
+      <div class="col-8 ms-5">
+        <div class="d-flex justify-content-start mt-1">
+          <p class="col md-6">Age :</p>
           <p class="col md-6"><%= @licorne.age %></p>
         </div>
         <div class="d-flex justify-content-between mt-1">
-          <h4 class="col md-6">Superpower :</h4>
+          <p class="col md-6">Superpower :</p>
           <p class="col md-6"><%= @licorne.superpower %></p>
         </div>
         <div class="d-flex justify-content-between mt-1">
-          <h4 class="col md-6">Owner Name :</h4>
+          <p class="col md-6">Owner Name :</p>
           <p class="col md-6"><%= @licorne.user.first_name %> <%= @licorne.user.last_name %></p>
         </div>
         <div class="d-flex justify-content-between mt-1">
-          <h4 class="col md-6">Address :</h4>
+          <p class="col md-6">Address :</p>
           <p class="col md-6"><%= @licorne.user.address %></p>
         </div>
-        <div class="d-flex justify-content-between mt-1">
+        <div class="d-flex justify-content-end pe-5 mt-5">
           <p class="test"><%= @licorne.price %>€</p>
         </div>
       </div>
     </div>
+    <div class="d-flex justify-content-end mt-5">
+      <div class="btn a" style="padding: 20px"><%= link_to "Book now", new_licorne_booking_path(@licorne) %></div>
+    </div>
+    <div class="d-flex justify-content-start">
+      <span class="link-licorne">
+        <i class="fa-solid fa-horse"> </i>
+        <%= link_to "See all licornes", licornes_path %>
+      </span>
+    </div>
   </div>
-      <div class="d-flex justify-content-center mt-1">
-        <div class="btn a" style="padding: 20px"><%= link_to "Book now", new_licorne_booking_path(@licorne) %></div>
-      </div>
-      <div class="d-flex justify-content-center mt-1">
-        <div class="btn a" style="margin: 10px"><%= link_to "See all unicorns", licornes_path %></div>
-        <div class="btn a" style="margin: 10px"><%= link_to "Edit unicorn info", edit_licorne_path %></div>
-      </div>
 </div>
+
+<%= link_to "Book now", new_licorne_booking_path(@licorne) unless @licorne.user == current_user %>
+<%= link_to "See all unicorns", licornes_path %>
