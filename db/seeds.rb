@@ -17,8 +17,6 @@ puts "Creating Users..."
     last_name: Faker::Name.last_name.strip,
     password: "password",
     address: Faker::Address.city,
-    # latitude: Faker::Address.latitude,
-    # longitude: Faker::Address.longitude,
   )
   user.email = "#{user.first_name}.#{user.last_name}@gmail.com"
   user.save!
@@ -26,19 +24,22 @@ end
 puts "Users created !!"
 
 puts "Creating licornes..."
-10.times do
-  licorne = Licorne.new(
+
+rand = 1
+
+10.times do  
+licorne = Licorne.new(
     name: Faker::Music::Opera.unique.mozart_italian,
     superpower: Faker::Games::Pokemon.move,
     price: rand(500..1500),
     age: rand(2..999),
   )
-  rand = rand(1..9)
   file = File.open("app/assets/images/licorne#{rand}.jpg")
   licorne.photo.attach(io: file, filename: "licorne#{rand}}.jpg", content_type: "image/jpg")
   licorne.user = User.first(5).sample
   licorne.latitude = licorne.user.latitude
   licorne.longitude = licorne.user.longitude
+  rand += 1
   licorne.save!
 end
 puts "Licornes created !!"
