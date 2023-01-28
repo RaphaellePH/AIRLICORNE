@@ -1,18 +1,22 @@
 <div class="container-licorne">
-  <div class="card-licorne">
-    <h1>Your Booking</h1>
-
-    <% @licorne = Licorne.find(@booking.licorne_id) %>
-
-    <h2>Licorne :</h2>
-    <p><%= @licorne.name %></p>
-    <h2>Date :</h2>
-    <p><%= @booking.date %></p>
-    <h2>Statut :</h2>
-    <p><%= @booking.status %></p>
+  <div class="d-flex justify-content-center">
+    <div class="card-licorne">
+      <h1>Your Booking</h1>
+      <% @licorne = Licorne.find(@booking.licorne_id) %>
+      <div class="d-flex justify-content-start">
+        <h2>Licorne :</h2>
+        <p class="ms-5 mt-2"><strong><%= @licorne.name %></strong></p>
+      </div>
+      <div class="d-flex justify-content-start">
+        <h2>Date :</h2>
+        <p class="ms-5 mt-2"><strong><%= @booking.date %></strong></p>
+      </div>
+      <i class="fa-solid fa-gift"></i>
+      <h1>Your unicorn is booked!</h1>
+    </div>
   </div>
-  <div class="d-flex justify-content-center mt-1">
-    <div class="btn a" style="margin: 10px"><%= link_to "Return to all unicorns", licornes_path %>
-    <div class="btn a" style="margin: 10px"><%= link_to "Return to your dashboard", dashboard_path %>
+  <div class="d-flex justify-content-center">
+    <div class="btn a me-1 ms-1"><%= link_to "Return to all unicorns", licornes_path %></div>
+    <div class="btn a me-1 ms-1"><%= link_to "Return to your dashboard", dashboard_path %></div>
   </div>
 </div>
