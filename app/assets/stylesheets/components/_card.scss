@@ -1,5 +1,5 @@
 .card-licorne {
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   width: 400px;
   height: 475px;
@@ -37,7 +37,7 @@
 }
 
 .card-licorne-large {
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
   padding-top: 10px;
   width: 1200px;
@@ -47,7 +47,7 @@
 }
 
 .card-header {
-  font-size: large;
+  font-family: $body-font;
   font-weight: bolder;
   background-color: white;
   border-radius: 15px 15px 0 0 !important;
@@ -55,5 +55,11 @@
 
 .card {
   border-radius: 15px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.card-title-booking {
+  text-align: center;
+  font-family: $body-font;
+  color: $pastel-blue;
 }
