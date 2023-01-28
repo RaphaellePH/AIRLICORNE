@@ -2,8 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  align-content: space-evenly;
-  justify-content: flex-start;
+  align-content: space-between;
+  justify-content: center;
   grid-gap: 20px;
 }
 
@@ -14,4 +14,9 @@
 
 .unicorn-front {
   font-family: "AgendaKing";
+}
+
+.container-form {
+  justify-content: center;
+  margin: 30px 600px 30px;
 }
