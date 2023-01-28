@@ -5,7 +5,7 @@
   color: $pop-blue;
 }
 
-.fa-solid {
+.fa-horse {
   color: $pop-blue;
   padding-right: 5px;
 }
@@ -16,4 +16,9 @@ a {
 
 a:hover {
   color: $white;
+}
+
+.link:hover {
+  color: $pop-blue;
+  font-weight: bolder;
 }

@@ -1,6 +1,6 @@
 <div class="container-licorne">
   <div class="card-licorne-large">
-    <h1 class="card-title ps-3"><%= @licorne.name %></h1>
+    <h2 class="card-title ps-3"><%= @licorne.name %></h2>
     <div class="d-flex justify-content-between mt-3">
       <div class="col-4 ps-3"><%= cl_image_tag @licorne.photo.key, height: 300, width: 400, crop: :fill %></div>
       <div class="col-8 ms-5">
@@ -31,11 +31,8 @@
     <div class="d-flex justify-content-start">
       <span class="link-licorne">
         <i class="fa-solid fa-horse"> </i>
-        <%= link_to "See all licornes", licornes_path %>
+        <%= link_to "See all licornes", licornes_path, class:"link" %>
       </span>
     </div>
   </div>
 </div>
-
-<%= link_to "Book now", new_licorne_booking_path(@licorne) unless @licorne.user == current_user %>
-<%= link_to "See all unicorns", licornes_path %>

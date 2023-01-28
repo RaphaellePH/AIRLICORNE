@@ -14,3 +14,25 @@
 .btn a {
   text-decoration: none;
 }
+
+#home-btn {
+  width: 400px;
+}
+
+.cancel-btn {
+  background-color: $pastel-pink;
+  color: rgba(252, 0, 147, 0.562)
+}
+.cancel-btn:hover {
+  background-color: $pop-pink;
+  color: $pastel-pink
+}
+
+.confirm-btn {
+  background-color: $pastel-green;
+  color: rgba(0, 128, 0, 0.555)
+}
+.confirm-btn:hover {
+  background-color: $pop-green;
+  color: $pastel-green
+}
