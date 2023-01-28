@@ -67,7 +67,7 @@
       <% current_user.licornes.each do |licorne| %>
         <div class="card-licorne">
           <div class="licorne-img">
-            <%= image_tag "licorne01.jpg" %>
+            <%= cl_image_tag licorne.photo.key %>
           </div>
           <div class="licorne-infos">
             <li>NAME: <%= licorne.name %></li>
