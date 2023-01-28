@@ -8,10 +8,10 @@
        <%= cl_image_tag licorne.photo.key %>
      </div>
      <div class="licorne-infos">
-         <li><strong>NAME:</strong> <%= licorne.name %></li>
-         <li><strong>AGE:</strong> <%= licorne.age %> years old</li>
-         <li><strong>SUPERPOWER:</strong> <%= licorne.superpower %></li>
-         <li><strong>ADDRESS:</strong> <%= licorne.user.address %></li>
+         <li>NAME: <strong><%= licorne.name %></strong></li>
+         <li>AGE: <strong><%= licorne.age %> years old</strong></li>
+         <li>SUPERPOWER: <strong><%= licorne.superpower %></strong></li>
+         <li>ADDRESS: <strong><%= licorne.user.address %></strong></li>
      </div>
      <div class="d-flex justify-content-end">
        <div class="btn btn-sm">

@@ -1,7 +1,44 @@
 <div class="title text-center">
   <h1>MY DASHBOARD</h1>
 </div>
-<div class="container">
+<div class="container mb-5">
+  <div class="card mt-3" style="width: 100%">
+    <h5 class="card-header">My User Infos</h5>
+    <div class="card-body">
+      <p class="card-text">Name: <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></p>
+      <p class="card-text">Adress: <strong><%= current_user.address %></strong></p>
+      <p class="card-text">Email: <strong><%= current_user.email %></strong></p>
+      <p class="card-text">Password: ********</p>
+      <%= link_to "Update My Infos", edit_user_registration_path, class: "btn mt-3" %>
+    </div>
+  </div>
+
+  <div class="btn mt-3">
+    <%= link_to "Register my Licorne", new_licorne_path() %>
+  </div>
+
+  <% if current_user.licornes.any? %>
+    <div class="card mt-3" style="width: 100%">
+      <h5 class="card-header">My Licornes</h5>
+      <div class="d-flex flex-row">
+        <% current_user.licornes.each do |licorne| %>
+          <div class="card-licorne m-3" style="height: 400px">
+            <div class="licorne-img">
+              <%= cl_image_tag licorne.photo.key %>
+            </div>
+            <div class="licorne-infos ps-3">
+              <li>NAME: <strong><%= licorne.name %></strong></li>
+              <li>AGE: <strong><%= licorne.age %> years old</strong></li>
+              <li>SUPERPOWER: <strong><%= licorne.superpower %></strong></li>
+              <%= link_to "Update Licorne Infos", licorne_path(licorne), class: "btn mt-3" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+
   <% if @requested_bookings.any? %>
     <div class="card mt-3" style="width: 100%">
       <h5 class="card-header">Requested Bookings</h5>
@@ -10,12 +47,12 @@
         <% @requested_bookings.each do |booking| %>
           <div class="card m-3">
             <div class="card-body">
-              <h5 class="card-title"><%= booking.licorne.name %></h5>
-              <p class="card-text"><%= booking.date %></p>
-              <p class="card-text"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
-              <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
-              <%= link_to "Confirm Booking", confirm_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-success" if booking.status == "pending" %>
-              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-alert" %>
+              <h5 class="card-title-booking"><strong><%= booking.licorne.name %></strong></h5>
+              <p class="card-text">Date: <strong><%= booking.date %></strong></p>
+              <p class="card-text">Rentee: <strong><%= booking.user.first_name %> <%= booking.user.last_name %></strong></p>
+              <p class="card-text">Booking Status: <strong><%= booking.status.capitalize %></strong></p>
+              <%= link_to "Confirm Booking", confirm_booking_path(booking), data: {turbo_method: :patch}, class: "btn confirm-btn mb-2" if booking.status == "pending" %>
+              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn cancel-btn" %>
             </div>
           </div>
         <% end %>
@@ -31,11 +68,11 @@
         <% @pending_bookings.each do |booking| %>
           <div class="card m-3">
             <div class="card-body">
-              <h5 class="card-title"><%= booking.licorne.name %></h5>
+              <h5 class="card-title-booking"><%= booking.licorne.name %></h5>
               <p class="card-text"><%= booking.date %></p>
               <p class="card-text"><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
               <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
-              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-alert" %>
+              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn cancel-btn" %>
             </div>
           </div>
         <% end %>
@@ -51,11 +88,11 @@
         <% @confirmed_bookings.each do |booking| %>
           <div class="card m-3">
             <div class="card-body">
-              <h5 class="card-title"><%= booking.licorne.name %></h5>
+              <h5 class="card-title-booking"><%= booking.licorne.name %></h5>
               <p class="card-text"><%= booking.date %></p>
               <p class="card-text"><%= booking.licorne.user.first_name %> <%= booking.licorne.user.last_name %></p>
               <p class="card-text"><strong><%= booking.status.capitalize %></strong></p>
-              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn btn-alert" %>
+              <%= link_to "Cancel Booking", cancel_booking_path(booking), data: {turbo_method: :patch}, class: "btn cancel-btn" %>
             </div>
           </div>
         <% end %>
@@ -63,31 +100,6 @@
       </div>
     </div>
   <% end %>
-
-  <% if current_user.licornes.any? %>
-    <div class="card mt-3" style="width: 100%">
-      <h5 class="card-header">My Licornes</h5>
-      <div class="d-flex flex-row">
-        <% current_user.licornes.each do |licorne| %>
-          <div class="card-licorne m-3" style="height: 400px">
-            <div class="licorne-img">
-              <%= image_tag "licorne01.jpg" %>
-            </div>
-            <div class="licorne-infos ps-3">
-              <li>NAME: <%= licorne.name %></li>
-              <li>AGE: <%= licorne.age %> years old</li>
-              <li>SUPERPOWER: <%= licorne.superpower %></li>
-              <%= link_to "Update Licorne Infos", licorne_path(licorne), class: "btn btn-primary mt-3" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="btn mt-3">
-    <%= link_to "Add a Licorne to Airlicorne", new_licorne_path() %>
-  </div>
 
   <% if @canceled_bookings.any? %>
     <div class="card mt-3" style="width: 100%">
