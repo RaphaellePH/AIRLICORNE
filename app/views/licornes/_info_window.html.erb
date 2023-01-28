@@ -1,3 +1,16 @@
-<h1><%= link_to licorne.name, licorne_path(licorne) %></h1>
-<h2><%= licorne.price %> €</h2>
-<h2><%= licorne.user.address %></h2>
+<div class="card-licorne-map">
+  <div class="licorne-img-map">
+    <%= cl_image_tag licorne.photo.key %>
+  </div>
+  <div class="licorne-infos">
+      <li>NAME: <strong><%= licorne.name %></strong></li>
+      <li>AGE: <strong><%= licorne.age %> years old</strong></li>
+      <li>SUPERPOWER: <strong><%= licorne.superpower %></strong></li>
+      <li>ADDRESS: <strong><%= licorne.user.address %></strong></li>
+  </div>
+  <div class="d-flex justify-content-end">
+    <div class="btn btn-sm">
+      <%= link_to "#{licorne.price}€", licorne_path(licorne) %>
+    </div>
+  </div>
+</div>
