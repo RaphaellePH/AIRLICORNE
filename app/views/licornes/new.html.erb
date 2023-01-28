@@ -1,12 +1,14 @@
 <div class="container-form">
-  <h2>Create a new licorne</h2>
-  <div class="form-font"><%= simple_form_for @licorne do |f| %>
-      <%= f.input :name, placeholder: 'name' %>
-      <%= f.input :age %>
-      <%= f.input :superpower %>
-      <%= f.input :price %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit class: 'btn btn-flat' %></div>
-    <% end %>
+  <div class="container-margin">
+    <h2>Create a new licorne</h2>
+    <div class="form-font"><%= simple_form_for @licorne do |f| %>
+        <%= f.input :name, placeholder: 'name' %>
+        <%= f.input :age %>
+        <%= f.input :superpower %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit class: 'btn btn-flat' %></div>
+      <% end %>
+    </div>
   </div>
 </div>
