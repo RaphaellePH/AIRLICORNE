@@ -22,10 +22,18 @@
   <% end %>
 </div>
 
-<%= link_to "Register my licorne", new_licorne_path %>
+<div class="d-flex justify-content-center mt-5 mb-5">
+    <div style="width: 1000px; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 
-<div style="width: 800px; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div class="d-flex justify-content-center mt-5 mb-5">
+    <div class="btn btn-lg">
+      <%= link_to "Register my licorne", new_licorne_path %>
+    </div>
+  </div>
 </div>
