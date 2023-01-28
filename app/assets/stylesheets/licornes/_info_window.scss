@@ -1,7 +1,15 @@
 .map-pop-up {
-  background-color: pink;
+  border-radius: 0%;
 }
 
-.map-pop-up h1 {
-  font-size: large;
+.map-pop-up p {
+  color: pink;
+  font-size: 17px;
+  font-family: "Cinzel";
+  padding: 5px;
+}
+
+.map-pop-up a {
+  text-decoration: none;
+  color: pink;
 }
