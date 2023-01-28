@@ -33,6 +33,9 @@ puts "Creating licornes..."
     price: rand(500..1500),
     age: rand(2..999),
   )
+  rand = rand(1..9)
+  file = File.open("app/assets/images/licorne#{rand}.jpg")
+  licorne.photo.attach(io: file, filename: "licorne#{rand}}.jpg", content_type: "image/jpg")
   licorne.user = User.first(5).sample
   licorne.latitude = licorne.user.latitude
   licorne.longitude = licorne.user.longitude
